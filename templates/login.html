@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/resources/css/style_logo.css" rel="stylesheet">
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    }
+
+    .login-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #273e7c;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #273e7c;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+
+.login-btn:hover {
+    background-color: #1a2e5b;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.text-center a {
+    color: #273e7c;
+    text-decoration: none;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+</style>
+<body style="background: #273e7c">
+    <section id="navigation" class="shadow">
+    
+        <div class="image-container" style="background-color: #fff;">
+        <a class="scroll " href="index.html"><img src="css/resources/img/nielitlogo-left - Copy.PNG" alt="Image 1" style="height: 88%; width:100%;"></a>
+            <img src="css/resources/img/digital-india-logo.jpg" alt="Image 2" height="100">
+            <img src="css/resources/img/meity-new.jpg" alt="Image 3" style="height: 100%;">
+        </div>
+    </section>
+
+
+    <form action="" method="post" class="login-container" style="margin-top: 10%;margin-left: 40%;">
+        <h2>Login</h2>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email" required />
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required />
+        </div>
+        
+        <button type="submit" class="login-btn">Login Now</button>
+        
+        <div class="text-center">
+            <p><a href="#">Forgot password?</a></p>
+        </div>
+        </form>
+
+</body>
+</html>

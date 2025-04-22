@@ -1,0 +1,19 @@
+
+.image-container {
+    display: flex; /* Use flexbox to display images side by side */
+    justify-content: space-between; /* Distribute space between images */
+    flex-wrap: wrap; /* Allow images to wrap to next line on smaller screens */
+}
+
+.image-container img {
+    max-width: 100%; /* Ensure images don't exceed their container */
+     /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Add some space between images */
+}
+
+/* Adjust layout for smaller screens */
+@media screen and (max-width: 500%) {
+    .image-container {
+        justify-content: center; /* Center images on smaller screens */
+    }
+}
