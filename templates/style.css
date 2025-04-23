@@ -1,0 +1,155 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3f0fb;
+}
+
+.sidebar {
+    width: 100px;
+    background: linear-gradient(to bottom, #66bffa, #07599cc7 );
+    height: 100vh;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: fixed;
+    padding-left: 20px;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.05);
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+.sidebar:hover {
+    width: 180px; 
+}
+
+.nav-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 24px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: 0.3s ease;
+    padding: 0 15px;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+}
+
+.nav-icon i {
+    font-size: 22px;
+    margin-right: 15px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.nav-icon:hover {
+    /* width: 250px; */
+    /* background:rgba(255, 255, 255, 0.2); */
+    transform: scale(1.05);
+    /* background: rgba(255, 255, 255, 0.15); */
+}
+
+.nav-icon.active {
+        color: rgb(251, 255, 8);
+}
+.nav-icon:hover .nav-label {
+    opacity: 1;
+    margin-left: 10px;
+    color: rgb(9, 82, 165);
+    text-decoration: solid dashed;
+}
+.nav-label {
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease, margin 0.3s;
+    color: rgb(253, 253, 253);
+    text-decoration: solid dashed;
+    font-size: 14px;
+}
+
+.sidebar:hover .nav-label {
+    opacity: 1;
+}
+
+.main-content {
+    margin-left: 100px;
+    padding: 70px;
+}
+
+.header {
+    background: #ffeede;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-custom {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card-body:hover{
+    cursor: pointer;
+    border-bottom: 2px dotted #7cc8e6; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* .card-map{
+    color: (#202020, #3F51B5, #673AB7, #E91E63, #F44336, #FF7043,
+        #FF9800, #4CAF50, #009688, #00BCD4, #fff, #999,
+        #555, #4CAF50, #00BCD4, #FF7043, #F44336, #324148,
+        #03c69b,  #00f194
+    )
+} */
+
+.device-toggle {
+    border-radius: 12px;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+}
+
+.temp-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+.login-btn {
+    background-color: #243561;       /* Dark blue background */
+    color: white;                    /* White text */
+    border: none;                    /* No border */
+    padding: 10px 20px;              /* Top/bottom + left/right padding */
+    font-size: 16px;                 /* Font size */
+    border-radius: 8px;              /* Rounded corners */
+    cursor: pointer;                 /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    font-family: 'Roboto', sans-serif; /* Font */
+    align-items: end;
+}
+
+.login-btn:hover {
+    background-color: #445884;       /* Lighter blue on hover */
+    transform: translateY(-2px);     /* Slight raise on hover */
+}
+
+.login-btn i {
+    margin-right: 5px;               /* Space between icon and text (if any text is added) */
+}
+
+

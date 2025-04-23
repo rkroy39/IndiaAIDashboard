@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <!-- <script src="/highcharts/highcharts.js"></script> -->
+
+
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/in/in-all.topo.json"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
+
+
+</head>
+<style>
+
+    #my-map-div {
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    }
+    #my-map1-div {
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    }
+</style>
+
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header-container').innerHTML = data);
+    </script>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("expanded");
+    }
+</script>
+
+
+
+<style>
+    .user-navbar {
+    width: 100%;
+    background: linear-gradient(to left, #64b6ec, #07599cc7 );
+    padding: 10px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+}
+
+.user-navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.user-navbar-logo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.user-navbar-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: #964ac9c7 0.3s ease;
+}
+
+.user-navbar-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+</style>
+    <div class="d-flex">
+
+        <div class="sidebar d-flex flex-column align-items-start py-4">
+            <div class="nav-icon active" title="Home">
+                <i class="bi bi-house-door-fill"></i>
+                <span class="nav-label">Home</span>
+            </div>
+            <div class="nav-icon" title="Controls">
+                <i class="bi bi-sliders"></i>
+                <span class="nav-label">Controls</span>
+            </div>
+            <div class="nav-icon" title="Location">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span class="nav-label">Location</span>
+            </div>
+            <div class="nav-icon" title="Reports">
+                <i class="bi bi-bar-chart-line-fill"></i>
+                <span class="nav-label">Reports</span>
+            </div>
+            <div class="nav-icon" title="Upload">
+                <i class="bi bi-cloud-upload-fill"></i>
+                <span class="nav-label">Upload</span>
+            </div>
+        </div>
+        <nav class="user-navbar">
+    <div class="user-navbar-content">
+        <img src="css/resources/img/NIELIT_Logo.jpg" height="40px">
+        <div class="user-navbar-logo">Welcome, User</div>
+        <ul class="user-navbar-links">
+            <li><a href="/logout" class="user-navbar-link">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+

@@ -23,5 +23,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.welcome),
-    path('login/',views.loginPage)
+    path('login/',views.show_login_form,name='show_login_form'),
+    path('login/submit',views.submit_login_form,name='submit_login_form'),
+    path('after_login/',views.after_login,name='after_login'),
+    
 ]

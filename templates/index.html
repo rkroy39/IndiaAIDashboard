@@ -1,58 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Home Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="css/style.css" rel="stylesheet">
-    <!-- <script src="/highcharts/highcharts.js"></script> -->
+<body style="width: 95%; padding-left: 1%;">
+    <script>
+        fetch('header.html')
+        .then(res => res.text())
+        .then(html => {
+        document.getElementById('header').innerHTML = html;
+        });
+    </script>
 
-
-    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/mapdata/countries/in/in-all.topo.json"></script>
-    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
-
-
-</head>
-<style>
-
-    #my-map-div {
-    width: 100%;
-    height: 500px;
-    margin: auto;
-    }
-    #my-map1-div {
-    width: 100%;
-    height: 500px;
-    margin: auto;
-    }
-</style>
-<body>
-
-    
-    
-<script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("expanded");
-    }
-
-
-
-
+    <script>
     window.onload = function() {
         Highcharts.chart('barcontainer', {
     chart: {
         type: 'column'
     },
     title: {
-        text: 'YearWise Appeared Candidates Count'
+        text: 'MonthWise Performance Chart'
     },
     subtitle: {
         text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">NIELIT</a>'
@@ -90,26 +53,18 @@
         colorByPoint: true,
         groupPadding: 0,
         data: [
-            ['Tokyo', 37.33],
-            ['Delhi', 31.18],
-            ['Shanghai', 27.79],
-            ['Sao Paulo', 22.23],
-            ['Mexico City', 21.91],
-            ['Dhaka', 21.74],
-            ['Cairo', 21.32],
-            ['Beijing', 20.89],
-            ['Mumbai', 20.67],
-            ['Osaka', 19.11],
-            ['Karachi', 16.45],
-            ['Chongqing', 16.38],
-            ['Istanbul', 15.41],
-            ['Buenos Aires', 15.25],
-            ['Kolkata', 14.974],
-            ['Kinshasa', 14.970],
-            ['Lagos', 14.86],
-            ['Manila', 14.16],
-            ['Tianjin', 13.79],
-            ['Guangzhou', 13.64]
+            ['December', 37.33],
+            ['November', 31.18],
+            ['October', 27.79],
+            ['September', 22.23],
+            ['August', 21.91],
+            ['July', 21.74],
+            ['June', 15.25],
+            ['May', 14.974],
+            ['April', 14.970],
+            ['March', 14.86],
+            ['February', 14.16],
+            ['January', 13.79],
         ],
         dataLabels: {
             enabled: true,
@@ -133,7 +88,7 @@ Highcharts.chart('horicontainer', {
         type: 'bar'
     },
     title: {
-        text: 'Candidates Data'
+        text: 'Yearwise Budget Utilisation Graph'
     },
     subtitle: {
         text: 'Source: <a ' +
@@ -201,87 +156,9 @@ Highcharts.chart('horicontainer', {
     };
 </script>
 
-<style>
-    .user-navbar {
-    width: 100%;
-    background: linear-gradient(to left, #64b6ec, #07599cc7 );
-    padding: 10px 30px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1100;
-}
+<div id="header" ></div>
 
-.user-navbar-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-}
-
-.user-navbar-logo {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.user-navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-.user-navbar-link {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: #964ac9c7 0.3s ease;
-}
-
-.user-navbar-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-</style>
-    <div class="d-flex">
-
-        <div class="sidebar d-flex flex-column align-items-start py-4">
-            <div class="nav-icon active" title="Home">
-                <i class="bi bi-house-door-fill"></i>
-                <span class="nav-label">Home</span>
-            </div>
-            <div class="nav-icon" title="Controls">
-                <i class="bi bi-sliders"></i>
-                <span class="nav-label">Controls</span>
-            </div>
-            <div class="nav-icon" title="Location">
-                <i class="bi bi-geo-alt-fill"></i>
-                <span class="nav-label">Location</span>
-            </div>
-            <div class="nav-icon" title="Reports">
-                <i class="bi bi-bar-chart-line-fill"></i>
-                <span class="nav-label">Reports</span>
-            </div>
-            <div class="nav-icon" title="Upload">
-                <i class="bi bi-cloud-upload-fill"></i>
-                <span class="nav-label">Upload</span>
-            </div>
-        </div>
-        <nav class="user-navbar">
-    <div class="user-navbar-content">
-        <img src="css/resources/img/NIELIT_Logo.jpg" height="40px">
-        <div class="user-navbar-logo">Welcome, User</div>
-        <ul class="user-navbar-links">
-            <li><a href="/logout" class="user-navbar-link">Logout</a></li>
-        </ul>
-    </div>
-</nav>
-
-        <div class="main-content container-fluid">
+        <div class="main-content container-fluid" >
             <div class="card-custom p-4 header d-flex justify-content-between align-items-center" style="align-items: center; background-color: #ffffff; box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #b6abf5, inset 5px 4px 0 rgba(255, 255, 255, 0.164);">
                 <div class="col-md-12" >
                     <div class="row g-10 col-md-12">
@@ -320,37 +197,37 @@ Highcharts.chart('horicontainer', {
                                         <option value="">1</option>
                                         <option value="">2</option>
                                     </select>
-                                    <button class="btn btn-outline-primary" style="margin-left:3%;">Add Filter</button>
+                                    <button class="btn btn-outline-primary" style="margin-left:3%;font-size: 12px;">Add Filter</button>
                                 </div>
                             </div>
                             <div class="card-body py-4">
                                 <div class="d-flex align-items-center mb-4" style="padding: 1%;">
-                                    <select class="form-select form-select-sm mx-auto" id="tempFilter" style="margin-left:8px; ">
+                                    <select class="form-select form-select-sm mx-auto" id="tempFilter2" style="margin-left:8px; ">
                                         <option value="">Select</option>
                                         <option value="">1</option>
                                         <option value="">2</option>
                                     </select>
-                                    <button class="btn btn-outline-primary" style="margin-left:3%;">Add Filter</button>
+                                    <button class="btn btn-outline-primary" style="margin-left:3%;font-size: 12px;">Add Filter</button>
                                 </div>
                             </div>
                             <div class="card-body py-4">
                                 <div class="d-flex align-items-center mb-4" style="padding: 1%;">
-                                    <select class="form-select form-select-sm mx-auto" id="tempFilter" style="margin-left:8px; ">
+                                    <select class="form-select form-select-sm mx-auto" id="tempFilter3" style="margin-left:8px; ">
                                         <option value="">Select</option>
                                         <option value="">1</option>
                                         <option value="">2</option>
                                     </select>
-                                    <button class="btn btn-outline-primary" style="margin-left:3%;">Add Filter</button>
+                                    <button class="btn btn-outline-primary" style="margin-left:3%;font-size: 12px;">Add Filter</button>
                                 </div>
                             </div>
                             <div class="card-body py-4">
                                 <div class="d-flex align-items-center mb-4" style="padding: 1%;">
-                                    <select class="form-select form-select-sm mx-auto" id="tempFilter" style="margin-left:8px; ">
+                                    <select class="form-select form-select-sm mx-auto" id="tempFilter4" style="margin-left:8px; ">
                                         <option value="">Select</option>
                                         <option value="">1</option>
                                         <option value="">2</option>
                                     </select>
-                                    <button class="btn btn-outline-primary" style="margin-left:3%;">Add Filter</button>
+                                    <button class="btn btn-outline-primary" style="margin-left:3%; font-size: 12px;">Add Filter</button>
                                 </div>
                             </div>
                             
@@ -361,14 +238,13 @@ Highcharts.chart('horicontainer', {
                         <div class="col-lg-6 col-md-4 mb-4 mb-lg-0 wow fadeInUp sixth" style="z-index:999;opacity: 0.9;" data-wow-delay="0.1s">
                             <div class="text-white text-center mb-4">
                                 <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #ca7cd4, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#964ac9c7;background-image: url(resources/img/fabric.png);border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px;">
-                                <a href="" class="small-box-footer" style="text-decoration: none; color: inherit;"><h4 class="card-title">Certified Candidates</h4></a>
+                                <a href="" class="small-box-footer" style="text-decoration: none; color: inherit;"><h4 class="card-title">Total Dropout Candidates data</h4></a>
                                 <div class="icon">
                                     <h3><i class="fa fa-graduation-cap"></i></h3>
                                 </div>
                                 <div class="card-map card-content">
             
                                     <div id="candidate_categories">
-                                        <!-- <div id="BarContainer" style="height: 370px; width: 100%;"></div> -->
 
                                         <figure class="highcharts-figure">
                                             <div id="my-map-div" class=""></div>
@@ -384,14 +260,13 @@ Highcharts.chart('horicontainer', {
             <div class="col-lg-6 col-md-4 mb-4 mb-lg-0 wow fadeInUp sixth" style="z-index:999;opacity: 0.9;" data-wow-delay="0.1s">
                 <div class="text-white text-center mb-4">
                     <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #5cbeba, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#31978a;background-image: url(resources/img/fabric.png);border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px; height:620px;">
-                    <a href="" class="small-box-footer" style="text-decoration: none; color: inherit;"><h4 class="card-title">Certified Candidates</h4></a>
+                    <a href="" class="small-box-footer" style="text-decoration: none; color: inherit;"><h4 class="card-title">Batchwise Performance Analysis</h4></a>
                     <div class="icon">
                         <h3><i class="fa fa-graduation-cap"></i></h3>
                     </div>
                     <div class="card-content">
             
                         <div id="candidate_categories">
-                            <!-- <div id="BarContainer" style="height: 370px; width: 100%;"></div> -->
 
                             <figure class="highcharts-figure">
                                 <div id="my-map1-div" class="" style="height: 500px; width: 100%;"></div>
@@ -402,23 +277,19 @@ Highcharts.chart('horicontainer', {
                 </div>
             </div>
 
-
-            
-
 </div>
             <br> <br>
 <div class="row g-3 mx-auto" style="margin-left:10%; padding:0%;">
             <div class="col-lg-6 col-md-4 mb-4 mb-lg-0 wow fadeInUp sixth" style="z-index:999;opacity: 0.9;" data-wow-delay="0.1s">
                 <div class="text-white text-center mb-4">
                     <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #cea971, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#c99547;background-image: url(resources/img/fabric.png);border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px; height:600px;">
-                    <a href="" class="small-box-footer" style="text-decoration: none; color: inherit;"><h4 class="card-title">Certified Candidates</h4></a>
+                    <a href="" class="small-box-footer" style="text-decoration: none; color: inherit;"><h4 class="card-title">Budget Utilisation & Targets</h4></a>
                     <div class="icon">
                         <h3><i class="fa fa-graduation-cap"></i></h3>
                     </div>
                     <div class="card-content" >
             
                         <div id="candidate_categories">
-                            <!-- <div id="BarContainer" style="height: 370px; width: 100%;"></div> -->
 
                             <figure class="highcharts-figure">
                                 <div id="horicontainer" class="" style="height: 480px; width: 100%;"></div>
@@ -438,14 +309,13 @@ Highcharts.chart('horicontainer', {
             <div class="col-lg-6 col-md-4 mb-4 mb-lg-0 wow fadeInUp sixth" style="z-index:999;opacity: 0.9;" data-wow-delay="0.1s">
                 <div class="text-white text-center mb-4">
                     <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #69a1c2, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#3ca4c4;background-image: url(resources/img/fabric.png);border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px; ">
-                    <a href="" class="small-box-footer" style="text-decoration: none; color: inherit; "><h4 class="card-title">Certified Candidates</h4></a>
+                    <a href="" class="small-box-footer" style="text-decoration: none; color: inherit; "><h4 class="card-title">Faculty Performance</h4></a>
                     <div class="icon">
                         <h3><i class="fa fa-graduation-cap"></i></h3>
                     </div>
                     <div class="card-content" >
             
                         <div id="candidate_categories">
-                            <!-- <div id="BarContainer" style="height: 370px; width: 100%;"></div> -->
 
                             <figure class="highcharts-figure">
                                 <div id="barcontainer" class="" style="height: 480px; width: 100%;"></div>
@@ -459,14 +329,9 @@ Highcharts.chart('horicontainer', {
             </div>
             </div>
 </div>
-            
-<!-- <div class="mt-4 text-center">
-                            <p class="fw-bold">Living Room Temperature</p>
-                            <div class="card-body" style="background-color: aquamarine;">Graph1</div>
-                            <div class="card-body" style="background-color: blueviolet;">Graph2</div>
-                        </div> -->
+
 </div>
-                </div> 
+                </div>
 
                 
             </div>
@@ -516,25 +381,33 @@ Highcharts.chart('horicontainer', {
         ).then(res => res.json());
 
         const data = [
-            { code: 'IN-UP', value: 828 },
-            { code: 'IN-MH', value: 365 },
-            { code: 'IN-BR', value: 1106 },
-            { code: 'IN-WB', value: 1029 },
-            { code: 'IN-MP', value: 236 },
-            { code: 'IN-TN', value: 555 },
-            { code: 'IN-KA', value: 319 },
-            { code: 'IN-GJ', value: 308 },
-            { code: 'IN-RJ', value: 201 },
-            { code: 'IN-KL', value: 860 }
-        ];
+    { 'hc-key': 'in-up', value: 828, color: '#ff0000' }, // Red for Uttar Pradesh
+    { 'hc-key': 'in-mh', value: 365, color: '#00ff00' }, // Green for Maharashtra
+    { 'hc-key': 'in-br', value: 1106, color: '#0000ff' }, // Blue for Bihar
+    { 'hc-key': 'in-wb', value: 1029, color: '#ffff00' }, // Yellow for West Bengal
+    { 'hc-key': 'in-mp', value: 236, color: '#ff00ff' }, // Magenta for MP
+    { 'hc-key': 'in-tn', value: 555, color: '#00ffff' }, // Cyan for TN
+    { 'hc-key': 'in-ka', value: 319, color: '#ffa500' }, // Orange for Karnataka
+    { 'hc-key': 'in-gj', value: 308, color: '#F44336' }, // BlueViolet for Gujarat
+    { 'hc-key': 'in-rj', value: 201, color: '#a52a2a' }, // Brown for Rajasthan
+    { 'hc-key': 'in-kl', value: 860, color: '#708090' },  // SlateGray for Kerala
+    { 'hc-key': 'in-ap', value: 104, color: '#324148' }, // for andhra pradesh
+    { 'hc-key': 'in-ar', value: 741, color: '#F44336' }, // arunachal pradesh
+    { 'hc-key': 'in-as', value: 582, color: '#673AB7' }, // assam
+    { 'hc-key': 'in-hr', value: 874, color: '#3F51B5' }, // haryana
+    { 'hc-key': 'in-ut', value: 543, color: '#202020' }, // uttarakhand
+    { 'hc-key': 'in-pb', value: 457, color: '#00f194' }, //punjab
+    { 'hc-key': 'in-or', value: 521, color: '#03c69b' }, // orissa
+    { 'hc-key': 'in-jk', value: 521, color: '#03c69b' } // j and k
+
+    ];
 
         Highcharts.mapChart(containerId, {
             chart: { map: topology },
-            title: { text: 'Population Density by Indian State' },
+            title: { text: 'DropOut Candidates by Indian State' },
             legend: {
                 title: {
                     text: 'Population density per km²',
-                    // style: { color: 'black' }
                 }
             },
             mapNavigation: {
@@ -551,31 +424,9 @@ Highcharts.chart('horicontainer', {
                     '<span style="font-size:16px">{point.value}/km²</span>',
                 position: { verticalAlign: 'middle', y: 50 }
             },
-            colorAxis: {
-                dataClasses: [
-                { code: 'IN-UP', value: 828, color: '#673AB7' },
-                { code: 'IN-MH', value: 365, color: '#3F51B5' },
-                { code: 'IN-BR', value: 1106, color: '#E91E63' },
-                { code: 'IN-WB', value: 1029, color: '#F44336' },
-                { code: 'IN-MP', value: 236, color: '#FF7043' },
-                { code: 'IN-TN', value: 555 , color: '#00BCD4'},
-                { code: 'IN-KA', value: 319, color: '#FF7043' },
-                { code: 'IN-GJ', value: 308, color: '#4CAF50' },
-                { code: 'IN-RJ', value: 201, color: '#009688' },
-                { code: 'IN-KL', value: 860, color: '#FF9800' }
-                    // { to: 250, color: '#d4efdf', name: '< 250' },
-                    // { from: 251, to: 500, color: '#7dcea0', name: '251–500' },
-                    // { from: 501, to: 800, color: '#2ecc71', name: '501–800' },
-                    // { from: 801, to: 1000, color: '#27ae60', name: '801–1000' },
-                    // { from: 1001, color: '#1e8449', name: '> 1000' }
-                ],
-                min: 0, // Set min value for the color scale
-                max: 1200, // Set max value for the color scale
-                type: 'linear' // You can also try logarithmic if values are highly varied
-            },
             series: [{
                 data: data,
-                joinBy: ['hc-key', 'code'],
+                joinBy: 'hc-key',
                 name: 'Population density',
                 states: { hover: { color: '#a4edba' } },
                 dataLabels: { enabled: true, format: '{point.name}' }
@@ -585,28 +436,40 @@ Highcharts.chart('horicontainer', {
 
     renderIndiaMap();
 </script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
 <script>
     async function renderIndiaMap(containerId = 'my-map1-div') {
         const topology = await fetch(
             'https://code.highcharts.com/mapdata/countries/in/in-all.topo.json'
         ).then(res => res.json());
 
+    
         const data = [
-            { code: 'IN-UP', value: 828 },
-            { code: 'IN-MH', value: 365 },
-            { code: 'IN-BR', value: 1106 },
-            { code: 'IN-WB', value: 1029 },
-            { code: 'IN-MP', value: 236 },
-            { code: 'IN-TN', value: 555 },
-            { code: 'IN-KA', value: 319 },
-            { code: 'IN-GJ', value: 308 },
-            { code: 'IN-RJ', value: 201 },
-            { code: 'IN-KL', value: 860 }
-        ];
+    { 'hc-key': 'in-up', value: 828, color: '#ff0000' }, // Red for Uttar Pradesh
+    { 'hc-key': 'in-mh', value: 365, color: '#00ff00' }, // Green for Maharashtra
+    { 'hc-key': 'in-br', value: 1106, color: '#0000ff' }, // Blue for Bihar
+    { 'hc-key': 'in-wb', value: 1029, color: '#ffff00' }, // Yellow for West Bengal
+    { 'hc-key': 'in-mp', value: 236, color: '#ff00ff' }, // Magenta for MP
+    { 'hc-key': 'in-tn', value: 555, color: '#00ffff' }, // Cyan for TN
+    { 'hc-key': 'in-ka', value: 319, color: '#ffa500' }, // Orange for Karnataka
+    { 'hc-key': 'in-gj', value: 308, color: '#F44336' }, // BlueViolet for Gujarat
+    { 'hc-key': 'in-rj', value: 201, color: '#a52a2a' }, // Brown for Rajasthan
+    { 'hc-key': 'in-kl', value: 860, color: '#708090' },  // SlateGray for Kerala
+    { 'hc-key': 'in-ap', value: 104, color: '#324148' }, // for andhra pradesh
+    { 'hc-key': 'in-ar', value: 741, color: '#F44336' }, // arunachal pradesh
+    { 'hc-key': 'in-as', value: 582, color: '#673AB7' }, // assam
+    { 'hc-key': 'in-hr', value: 874, color: '#3F51B5' }, // haryana
+    { 'hc-key': 'in-ut', value: 543, color: '#202020' }, // uttarakhand
+    { 'hc-key': 'in-pb', value: 457, color: '#00f194' }, //punjab
+    { 'hc-key': 'in-or', value: 521, color: '#03c69b' }, // orissa
+    { 'hc-key': 'in-jk', value: 521, color: '#03c69b' } // j and k
+
+    ];
 
         Highcharts.mapChart(containerId, {
             chart: { map: topology },
-            title: { text: 'Population Density by Indian State' },
+            title: { text: 'Performance data' },
             legend: {
                 title: {
                     text: 'Population density per km²',
@@ -627,21 +490,9 @@ Highcharts.chart('horicontainer', {
                     '<span style="font-size:16px">{point.value}/km²</span>',
                 position: { verticalAlign: 'middle', y: 50 }
             },
-            colorAxis: {
-                dataClasses: [
-                    { to: 250, color: '#d4efdf', name: '< 250' },
-                    { from: 251, to: 500, color: '#7dcea0', name: '251–500' },
-                    { from: 501, to: 800, color: '#2ecc71', name: '501–800' },
-                    { from: 801, to: 1000, color: '#27ae60', name: '801–1000' },
-                    { from: 1001, color: '#1e8449', name: '> 1000' }
-                ],
-                min: 0, // Set min value for the color scale
-                max: 1200, // Set max value for the color scale
-                type: 'linear' // You can also try logarithmic if values are highly varied
-            },
-            series: [{
+                series: [{
                 data: data,
-                joinBy: ['hc-key', 'code'],
+                joinBy: 'hc-key',
                 name: 'Population density',
                 states: { hover: { color: '#a4edba' } },
                 dataLabels: { enabled: true, format: '{point.name}' }
@@ -652,136 +503,4 @@ Highcharts.chart('horicontainer', {
     renderIndiaMap();
 </script>
 
-<!-- <script>
-    (async function renderIndiaMap(containerId = 'my-map-div') {
-
-const topology = await fetch(
-    'https://code.highcharts.com/mapdata/countries/in/in-all.topo.json'
-).then(response => response.json());
-
-function drawChart(data) {
-    return Highcharts.mapChart('container', {
-        chart: {
-            map: topology
-        },
-
-        colors: [
-            'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(19,64,117,0.4)',
-            'rgba(19,64,117,0.5)', 'rgba(19,64,117,0.6)',
-            'rgba(19,64,117,0.8)', 'rgba(19,64,117,1)'
-        ],
-
-        title: {
-            text: 'Population density by country (/km²)',
-            align: 'left'
-        },
-
-        mapNavigation: {
-            enabled: true,
-            buttonOptions: {
-                align: 'right'
-            }
-        },
-
-        mapView: {
-            fitToGeometry: {
-                type: 'MultiPoint',
-                coordinates: [
-                    // Alaska west
-                    [-164, 54],
-                    // Greenland north
-                    [-35, 84],
-                    // New Zealand east
-                    [179, -38],
-                    // Chile south
-                    [-68, -55]
-                ]
-            }
-        },
-
-        legend: {
-            title: {
-                text: 'Individuals per km²',
-                style: {
-                    color: ( // theme
-                        Highcharts.defaultOptions &&
-                        Highcharts.defaultOptions.legend &&
-                        Highcharts.defaultOptions.legend.title &&
-                        Highcharts.defaultOptions.legend.title.style &&
-                        Highcharts.defaultOptions.legend.title.style.color
-                    ) || 'black'
-                }
-            },
-            align: 'left',
-            verticalAlign: 'bottom',
-            floating: true,
-            layout: 'vertical',
-            valueDecimals: 0,
-            backgroundColor: ( // theme
-                Highcharts.defaultOptions &&
-                Highcharts.defaultOptions.legend &&
-                Highcharts.defaultOptions.legend.backgroundColor
-            ) || 'rgba(255, 255, 255, 0.85)',
-            symbolRadius: 0,
-            symbolHeight: 14
-        },
-
-        colorAxis: {
-            dataClasses: [
-            { code: 'IN-UP', value: 828, color: '#673AB7' },
-                { code: 'IN-MH', value: 365, color: '#3F51B5' },
-                { code: 'IN-BR', value: 1106, color: '#E91E63' },
-                { code: 'IN-WB', value: 1029, color: '#F44336' },
-                { code: 'IN-MP', value: 236, color: '#FF7043' },
-                { code: 'IN-TN', value: 555 , color: '#00BCD4'},
-                { code: 'IN-KA', value: 319, color: '#FF7043' },
-                { code: 'IN-GJ', value: 308, color: '#4CAF50' },
-                { code: 'IN-RJ', value: 201, color: '#009688' },
-                { code: 'IN-KL', value: 860, color: '#FF9800' }
-        ]
-        },
-
-        series: [{
-            data: data,
-            joinBy: ['iso-a2', 'code'],
-            animation: true,
-            name: 'Population density',
-            tooltip: {
-                valueSuffix: '/km²'
-            },
-            shadow: false
-        }]
-    });
-}
-
-// Load the data from a Google Spreadsheet
-// https://docs.google.com/spreadsheets/d/1WBx3mRqiomXk_ks1a5sEAtJGvYukguhAkcCuRDrY1L0
-Highcharts.data({
-    googleAPIKey: 'AIzaSyCQ0Jh8OFRShXam8adBbBcctlbeeA-qJOk',
-    googleSpreadsheetKey: '1eSoQeilFp0HI-qgqr9-oXdCh5G_trQR2HBaWt_U_n78',
-
-    // Custom handler when the spreadsheet is parsed
-    parsed: function (columns) {
-
-        // Read the columns into the data array
-        const data = columns[0].slice(1).map((code, i) => ({
-            code: code.toUpperCase(),
-            value: parseFloat(columns[2][i + 1]),
-            name: columns[1][i + 1]
-        }));
-
-        drawChart(data);
-    },
-    error: function () {
-        const chart = drawChart();
-        chart.showLoading(
-            '<i class="icon-frown icon-large"></i> ' +
-            'Error loading data from Google Spreadsheets'
-        );
-    }
-});
-
-})();
-
-</script> -->
 </html>
