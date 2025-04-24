@@ -116,7 +116,7 @@ USE_TZ = True
 
 STATIC_URL = '/resources/'
 STATICFILES_DIRS = [
-    BASE_DIR / "resources",
+    BASE_DIR / 'resources',
 ]
 
 # Default primary key field type

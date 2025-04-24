@@ -1,12 +1,13 @@
 
 <body style="width: 95%; padding-left: 1%;">
-    <script>
+    {% load static %}
+  <!--   <script>
         fetch('header.html')
         .then(res => res.text())
         .then(html => {
         document.getElementById('header').innerHTML = html;
         });
-    </script>
+    </script> -->
 
     <script>
     window.onload = function() {
@@ -156,7 +157,10 @@ Highcharts.chart('horicontainer', {
     };
 </script>
 
-<div id="header" ></div>
+<div id="header" >
+ {% include 'header.html' %}
+
+</div>
 
         <div class="main-content container-fluid" >
             <div class="card-custom p-4 header d-flex justify-content-between align-items-center" style="align-items: center; background-color: #ffffff; box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #b6abf5, inset 5px 4px 0 rgba(255, 255, 255, 0.164);">
@@ -237,7 +241,7 @@ Highcharts.chart('horicontainer', {
 
                         <div class="col-lg-6 col-md-4 mb-4 mb-lg-0 wow fadeInUp sixth" style="z-index:999;opacity: 0.9;" data-wow-delay="0.1s">
                             <div class="text-white text-center mb-4">
-                                <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #ca7cd4, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#964ac9c7;background-image: url(resources/img/fabric.png);border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px;">
+                                <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #ca7cd4, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#964ac9c7;background-image: url('{% static 'img/fabric.png' %}');border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px;">
                                 <a href="" class="small-box-footer" style="text-decoration: none; color: inherit;"><h4 class="card-title">Total Dropout Candidates data</h4></a>
                                 <div class="icon">
                                     <h3><i class="fa fa-graduation-cap"></i></h3>
@@ -259,7 +263,7 @@ Highcharts.chart('horicontainer', {
 
             <div class="col-lg-6 col-md-4 mb-4 mb-lg-0 wow fadeInUp sixth" style="z-index:999;opacity: 0.9;" data-wow-delay="0.1s">
                 <div class="text-white text-center mb-4">
-                    <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #5cbeba, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#31978a;background-image: url(resources/img/fabric.png);border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px; height:620px;">
+                    <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #5cbeba, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#31978a;background-image: url('{% static 'img/fabric.png' %}');border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px; height:620px;">
                     <a href="" class="small-box-footer" style="text-decoration: none; color: inherit;"><h4 class="card-title">Batchwise Performance Analysis</h4></a>
                     <div class="icon">
                         <h3><i class="fa fa-graduation-cap"></i></h3>
@@ -282,7 +286,7 @@ Highcharts.chart('horicontainer', {
 <div class="row g-3 mx-auto" style="margin-left:10%; padding:0%;">
             <div class="col-lg-6 col-md-4 mb-4 mb-lg-0 wow fadeInUp sixth" style="z-index:999;opacity: 0.9;" data-wow-delay="0.1s">
                 <div class="text-white text-center mb-4">
-                    <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #cea971, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#c99547;background-image: url(resources/img/fabric.png);border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px; height:600px;">
+                    <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #cea971, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#c99547;background-image:url('{% static 'img/fabric.png' %}');border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px; height:600px;">
                     <a href="" class="small-box-footer" style="text-decoration: none; color: inherit;"><h4 class="card-title">Budget Utilisation & Targets</h4></a>
                     <div class="icon">
                         <h3><i class="fa fa-graduation-cap"></i></h3>
@@ -308,7 +312,7 @@ Highcharts.chart('horicontainer', {
 
             <div class="col-lg-6 col-md-4 mb-4 mb-lg-0 wow fadeInUp sixth" style="z-index:999;opacity: 0.9;" data-wow-delay="0.1s">
                 <div class="text-white text-center mb-4">
-                    <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #69a1c2, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#3ca4c4;background-image: url(resources/img/fabric.png);border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px; ">
+                    <div class="card-body py-4" style="box-shadow: -2px -1px 3px rgba(0,0,0,0.2), 10px 10px 20px #69a1c2, inset 5px 4px 0 rgba(255, 255, 255, 0.164);background-color:#3ca4c4;background-image: url('{% static 'img/fabric.png' %}');border-top-left-radius: 40px;border-top-right-radius: 40px;border-bottom-left-radius: 40px;border-bottom-right-radius: 40px; ">
                     <a href="" class="small-box-footer" style="text-decoration: none; color: inherit; "><h4 class="card-title">Faculty Performance</h4></a>
                     <div class="icon">
                         <h3><i class="fa fa-graduation-cap"></i></h3>

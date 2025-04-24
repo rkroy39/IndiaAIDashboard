@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
     <!-- <script src="/highcharts/highcharts.js"></script> -->
 
 
@@ -34,11 +34,11 @@
     }
 </style>
 
-    <script>
+    <!-- <script>
         fetch('header.html')
         .then(response => response.text())
         .then(data => document.getElementById('header-container').innerHTML = data);
-    </script>
+    </script> -->
 <script>
     function toggleSidebar() {
         const sidebar = document.getElementById("sidebar");
@@ -120,8 +120,8 @@
         </div>
         <nav class="user-navbar">
     <div class="user-navbar-content">
-        <img src="css/resources/img/NIELIT_Logo.jpg" height="40px">
-        <div class="user-navbar-logo">Welcome, User</div>
+        <img src="{% static  'img/NIELIT_Logo.jpg'%}" height="40px">
+        <div class="user-navbar-logo">Welcome, Gaurav</div>
         <ul class="user-navbar-links">
             <li><a href="/logout" class="user-navbar-link">Logout</a></li>
         </ul>

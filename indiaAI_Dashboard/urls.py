@@ -28,3 +28,5 @@ urlpatterns = [
     path('after_login/',views.after_login,name='after_login'),
     
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
