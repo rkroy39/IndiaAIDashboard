@@ -64,7 +64,7 @@
 
     #my-map1-div {
       width: 100%;
-      height: 600px;
+      height: 500px;
       margin: auto;
 
     }
@@ -680,7 +680,7 @@
     <script>
       async function renderIndiaMap(containerId = "my-map-div") {
         const topology = await fetch(
-          "https://code.highcharts.com/mapdata/countries/in/in-all.topo.json"
+          "https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.topo.json"
         ).then((res) => res.json());
 
         const data = [
@@ -746,7 +746,7 @@
     <script>
       async function renderIndiaMap(containerId = "my-map1-div") {
         const topology = await fetch(
-          "https://code.highcharts.com/mapdata/countries/in/in-all.topo.json"
+          "https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.topo.json"
         ).then((res) => res.json());
 
         const data = [
