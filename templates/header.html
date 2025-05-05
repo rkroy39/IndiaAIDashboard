@@ -14,7 +14,7 @@
 
 
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/mapdata/countries/in/in-all.topo.json"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.topo.json"></script>
     <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
 
@@ -49,6 +49,8 @@
 
 
 <style>
+
+    
     .user-navbar {
     width: 100%;
     background: linear-gradient(to left, #64b6ec, #07599cc7 );
@@ -95,35 +97,48 @@
 
 </style>
     <div class="d-flex">
+<div class="sidebar d-flex flex-column align-items-start py-4">
+    <div class="nav-icon active" title="Home">
+        <i class="bi bi-house-door-fill"></i>
+        <span class="nav-label">Home</span>
+    </div>
+    <div class="nav-icon" title="Training Details">
+        <i class="bi bi-journal-richtext"></i>
+        <span class="nav-label">Training Details</span>
+    </div>
+    <div class="nav-icon" title="Resources Management">
+        <i class="bi bi-people-fill"></i>
+        <span class="nav-label">Resources Management</span>
+    </div>
+    <div class="nav-icon" title="Approvals">
+        <i class="bi bi-check2-circle"></i>
+        <span class="nav-label">Approvals</span>
+    </div>
+    <div class="nav-icon" title="Reports">
+        <i class="bi bi-file-earmark-bar-graph-fill"></i>
+        <span class="nav-label">Reports</span>
+    </div>
+    <div class="nav-icon" title="Assessment & Certification">
+        <i class="bi bi-patch-check-fill"></i>
+        <span class="nav-label">Assessment & Certification</span>
+    </div>
+    <div class="nav-icon" title="Performance Monitoring">
+        <i class="bi bi-speedometer2"></i>
+        <span class="nav-label">Performance Monitoring</span>
+    </div>
+    <div class="nav-icon" title="Upload">
+        <i class="bi bi-cloud-arrow-up-fill"></i>
+        <span class="nav-label">Upload</span>
+    </div>
+</div>
 
-        <div class="sidebar d-flex flex-column align-items-start py-4">
-            <div class="nav-icon active" title="Home">
-                <i class="bi bi-house-door-fill"></i>
-                <span class="nav-label">Home</span>
-            </div>
-            <div class="nav-icon" title="Controls">
-                <i class="bi bi-sliders"></i>
-                <span class="nav-label">Controls</span>
-            </div>
-            <div class="nav-icon" title="Location">
-                <i class="bi bi-geo-alt-fill"></i>
-                <span class="nav-label">Location</span>
-            </div>
-            <div class="nav-icon" title="Reports">
-                <i class="bi bi-bar-chart-line-fill"></i>
-                <span class="nav-label">Reports</span>
-            </div>
-            <div class="nav-icon" title="Upload">
-                <i class="bi bi-cloud-upload-fill"></i>
-                <span class="nav-label">Upload</span>
-            </div>
-        </div>
+
         <nav class="user-navbar">
     <div class="user-navbar-content">
-        <img src="{% static  'img/NIELIT_Logo.jpg'%}" height="40px">
+        <img src="{% static  'img/dashboard_img.png'%}" height="40px">
         <div class="user-navbar-logo">Welcome, Gaurav</div>
         <ul class="user-navbar-links">
-            <li><a href="/logout" class="user-navbar-link">Logout</a></li>
+            <li><a href="{% url 'logout' %}" class="user-navbar-link">Logout</a></li>
         </ul>
     </div>
 </nav>

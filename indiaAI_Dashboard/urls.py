@@ -19,13 +19,19 @@ from django.urls import path
 from indiaAI_Dashboard import views
 from django.conf import settings
 from django.conf.urls.static import static
+from indiaAI_Dashboard.views.login import Login
+from indiaAI_Dashboard.views.logout import Logout  
+from indiaAI_Dashboard.views.home import Welcome
+from indiaAI_Dashboard.views.after_login import AfterLogin
+#from indiaAI_Dashboard.views import create_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.welcome),
-    path('login/',views.show_login_form,name='show_login_form'),
-    path('login/submit',views.submit_login_form,name='submit_login_form'),
-    path('after_login/',views.after_login,name='after_login'),
+    path('',Welcome.as_view()),
+    path('login/',Login.as_view(),name='login'),
+    path('logout/',Logout.as_view(),name='logout'),
+    path('after-login/',AfterLogin.as_view(),name='after_login'),
+    #path('create-user/', create_user, name='create_user'),
     
 ]
 if settings.DEBUG:
