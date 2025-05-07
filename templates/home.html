@@ -1,48 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   {% load static %}
   <head>
     <meta charset="utf-8" />
     <title>India AI Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="keywords" />
-    <meta content="" name="description" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
 
-    <!-- Libraries Stylesheet -->
-    <link href="resources/lib/animate/animate.min.css" rel="stylesheet" />
-    <link
-      href="resources/lib/owlcarousel/assets/owl.carousel.min.css"
-      rel="stylesheet"
-    />
-    <link href="resources/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
-    />
+    /> -->
 
     <!-- Template Stylesheet -->
-    <link href="resources/css/style.css" rel="stylesheet" />
-    <link href="resources/css/style_logo.css" rel="stylesheet" />
-    <script src="/highcharts/highcharts.js"></script>
-    <link
+  
+    <link rel="stylesheet" href="resources/css/theme.css">
+
+    <!--<link href="resources/css/style_logo.css" rel="stylesheet" />
+    <script src="/highcharts/highcharts.js"></script> -->
+    <!-- <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
-    />
+    /> -->
 
     <!-- Map Javascript -->
+
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
     <script src="https://code.highcharts.com/mapdata/countries/in/in-all.topo.json"></script>
@@ -50,10 +35,10 @@
     <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
 
     <!-- Highchart Javascript -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <link href="css/resources/css/style_logo.css" rel="stylesheet" />
+    <link href="css/resources/css/style_logo.css" rel="stylesheet" /> -->
   </head>
   <style>
     #my-map-div {
@@ -69,614 +54,183 @@
 
     }
   </style>
-  <script>
-    window.onload = function () {
-      Highcharts.chart("container", {
-        chart: {
-          type: "pie",
-        },
-        title: {
-          text: "YearWise Registered Candidates Count",
-        },
-        tooltip: {
-          valueSuffix: "%",
-        },
-        subtitle: {
-          text: 'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">NIELIT</a>',
-        },
-        plotOptions: {
-          pie: {
-            allowPointSelect: true,
-            cursor: "pointer",
-            dataLabels: {
-              enabled: true,
-              distance: 20,
-              format: "{point.name}: {point.percentage:.1f}%",
-              style: {
-                fontSize: "1.2em",
-                textOutline: "none",
-                opacity: 0.7,
-              },
-              filter: {
-                operator: ">",
-                property: "percentage",
-                value: 10,
-              },
-            },
-          },
-        },
-        series: [
-          {
-            name: "Percentage",
-            colorByPoint: true,
-            data: [
-              { name: "Male", y: 55.02 },
-              { name: "Female", sliced: true, selected: true, y: 26.71 },
-              { name: "Others", y: 1.09 },
-              // { name: 'Protein', y: 15.5 },
-              // { name: 'Ash', y: 1.68 }
-            ],
-          },
-        ],
-      });
 
-      Highcharts.chart("newcontainer", {
-        chart: {
-          type: "pie",
-        },
-        title: {
-          text: "YearWise Certified Candidates Count",
-        },
-        tooltip: {
-          valueSuffix: "%",
-        },
-        subtitle: {
-          text: 'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">NIELIT</a>',
-        },
-        plotOptions: {
-          pie: {
-            allowPointSelect: true,
-            cursor: "pointer",
-            dataLabels: {
-              enabled: true,
-              distance: 20,
-              format: "{point.name}: {point.percentage:.1f}%",
-              style: {
-                fontSize: "1.2em",
-                textOutline: "none",
-                opacity: 0.7,
-              },
-              filter: {
-                operator: ">",
-                property: "percentage",
-                value: 10,
-              },
-            },
-          },
-        },
-        series: [
-          {
-            name: "Percentage",
-            colorByPoint: true,
-            data: [
-              { name: "EWS", y: 55.02 },
-              { name: "SC", sliced: true, selected: true, y: 26.71 },
-              { name: "ST", y: 1.09 },
-              { name: "Women", y: 15.5 },
-              // { name: 'Ash', y: 1.68 }
-            ],
-          },
-        ],
-      });
-
-      Highcharts.chart("barcontainer", {
-        chart: {
-          type: "column",
-        },
-        title: {
-          text: "YearWise Appeared Candidates Count",
-        },
-        subtitle: {
-          text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">NIELIT</a>',
-        },
-        xAxis: {
-          type: "category",
-          labels: {
-            autoRotation: [-45, -90],
-            style: {
-              fontSize: "13px",
-              fontFamily: "Verdana, sans-serif",
-            },
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: {
-            text: "Population (millions)",
-          },
-        },
-        legend: {
-          enabled: false,
-        },
-        tooltip: {
-          pointFormat: "Population in 2021: <b>{point.y:.1f} millions</b>",
-        },
-        series: [
-          {
-            name: "Population",
-            colors: [
-              "#9b20d9",
-              "#9215ac",
-              "#861ec9",
-              "#7a17e6",
-              "#7010f9",
-              "#691af3",
-              "#6225ed",
-              "#5b30e7",
-              "#533be1",
-              "#4c46db",
-              "#4551d5",
-              "#3e5ccf",
-              "#3667c9",
-              "#2f72c3",
-              "#277dbd",
-              "#1f88b7",
-              "#1693b1",
-              "#0a9eaa",
-              "#03c69b",
-              "#00f194",
-            ],
-            colorByPoint: true,
-            groupPadding: 0,
-            data: [
-              ["December", 37.33],
-              ["November", 31.18],
-              ["October", 27.79],
-              ["September", 22.23],
-              ["August", 21.91],
-              ["July", 21.74],
-              ["June", 15.25],
-              ["May", 14.974],
-              ["April", 14.97],
-              ["March", 14.86],
-              ["February", 14.16],
-              ["January", 13.79],
-            ],
-            dataLabels: {
-              enabled: true,
-              rotation: -90,
-              color: "#FFFFFF",
-              inside: true,
-              verticalAlign: "top",
-              format: "{point.y:.1f}", // one decimal
-              y: 10, // 10 pixels down from the top
-              style: {
-                fontSize: "13px",
-                fontFamily: "Verdana, sans-serif",
-              },
-            },
-          },
-        ],
-      });
-
-      Highcharts.chart("horicontainer", {
-        chart: {
-          type: "bar",
-        },
-        title: {
-          text: "Candidates Data",
-        },
-        subtitle: {
-          text:
-            "Source: <a " +
-            'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
-            'target="_blank">NIELIT</a>',
-        },
-        xAxis: {
-          categories: ["Africa", "America", "Asia", "Europe"],
-          title: {
-            text: null,
-          },
-          gridLineWidth: 1,
-          lineWidth: 0,
-        },
-        yAxis: {
-          min: 0,
-          title: {
-            text: "Population (millions)",
-            align: "high",
-          },
-          labels: {
-            overflow: "justify",
-          },
-          gridLineWidth: 0,
-        },
-        tooltip: {
-          valueSuffix: " millions",
-        },
-        plotOptions: {
-          bar: {
-            borderRadius: "50%",
-            dataLabels: {
-              enabled: true,
-            },
-            groupPadding: 0.1,
-          },
-        },
-        legend: {
-          layout: "vertical",
-          align: "right",
-          verticalAlign: "top",
-          x: -40,
-          y: 80,
-          floating: true,
-          borderWidth: 1,
-          backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || "#FFFFFF",
-          shadow: true,
-        },
-        credits: {
-          enabled: false,
-        },
-        series: [
-          {
-            name: "Year 1990",
-            data: [632, 727, 3202, 721],
-          },
-          {
-            name: "Year 2000",
-            data: [814, 841, 3714, 726],
-          },
-          {
-            name: "Year 2021",
-            data: [1393, 1031, 4695, 745],
-          },
-        ],
-      });
-    };
-  </script>
 
   <body>
-    <section id="navigation" class="shadow">
-      <div class="image-container" style="background-color: #fff">
-        <a class="scroll" href="index.html">
-          <img
-            src="{% static 'img/nielitlogo-left - Copy.PNG'%}"
-            alt="Image 1"
-            style="height: 88%; width: 100%"
-        /></a>
-        <img
-          src="{% static 'img/dashboard_img.png'%}"
-          alt="Image 2"
-          height="100"
-        />
-        <img
-          src="{% static 'img/digital-india-logo.jpg'%}"
-          alt="Image 2"
-          height="100"
-        />
-        <img
-          src="{% static 'img/meity-new.jpg'%}"
-          alt="Image 3"
-          style="height: 100%"
-        />
-      </div>
-    </section>
-    <a
-      name="login"
-      href="/login"
-      class="btn login-btn"
-      title="Login"
-      style="
-        background-color: #07599cd7;
-        height: auto;
-        color: #fff;
-        margin-top: 1%;
-        margin-left: 90%;
-        margin-bottom: 1%;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-      "
-    >
-      <i class="fa fa-sign-in-alt"></i> Login
-    </a>
 
-    <div
-      class="row"
-      style="
-        margin-left: 1%;
-        margin-right: 1%;
-        background-color: #c9e8fd;
-        border: 1px solid #1d86db;
-      "
-    >
-      <div
-        class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
-        style="z-index: 999; margin-top: 15px; min-height: 600px"
-      >
-        <div
-          class="card"
-          style="
-            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2),
-              12px 12px 20px rgba(0, 0, 0, 0.6),
-              inset 2px 2px 0 rgba(255, 255, 255, 0.1);
-          "
-        >
-          <div
-            style="
-              color: #fff;
-              font-family: 'Roboto Condensed', sans-serif;
-              font-weight: 100;
-              opacity: 0.95;
-              font-size: 20px;
-              text-align: center;
-              padding: 8px 15px;
-              background: -webkit-linear-gradient(
-                top,
-                #04579bc7 0%,
-                #4d9fd6 100%
-              );
-            "
-          >
-            State-Wise Candidates Data
-          </div>
-          <div class="card-content">
-            <div id="candidate_categories">
-              <figure class="highcharts-figure">
-                <div id="my-map-div" class=""></div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="logo-section">
+      <a href="landing.html"><img src="{% static 'img/nielitlogo-left - Copy.PNG'%}" alt="Image 1" style="height: 88%; width:100%;"></a>
+      <img src="{% static 'img/dashboard_img.png'%}" alt="Image 2" style="height: 5%; width:5%;">
+      <img src="{% static 'img/digital-india-logo.jpg'%}" alt="Image 3" style="height: 8%; width:9%;">
+  </div>
 
-      <div
-        class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
-        style="
-          z-index: 999;
-          margin-top: 15px;
-          min-height: 600px;
-          border-top-left-radius: 10px;
-        "
-      >
-        <div
-          class="card"
-          style="
-            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2),
-              12px 12px 20px rgba(0, 0, 0, 0.6),
-              inset 2px 2px 0 rgba(255, 255, 255, 0.1);
-          "
-        >
-          <div
-            style="
-              color: #fff;
-              font-family: 'Roboto Condensed', sans-serif;
-              font-weight: 100;
-              opacity: 0.95;
-              font-size: 20px;
-              text-align: center;
-              padding: 8px 15px;
-              background: -webkit-linear-gradient(
-                top,
-                #04579bc7 0%,
-                #4d9fd6 100%
-              );
-            "
-          >
-            Center-wise Candidate Data
-          </div>
-          <div class="card-content">
-            <div id="candidate_categories">
-              <figure class="highcharts-figure">
-                <div id="my-map1-div" class=""></div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
+  <nav>
+    <h1>AI Dashboard</h1>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About IndiaAI Project</a></li>
+        <li><a href="#">Testimonials & Feedbacks</a></li>
+        <li><a href="#">Contact US</a></li>
+        <!-- <li><a href="#">Analytics</a></li> -->
+    </ul>
+    <div>
+        <a name="login" class="login-btn" href="/login" title="Login"><i class="fa fa-sign-in-alt"></i>Login</a>
+        <button class="theme-toggle" onclick="cycleTheme()">Change Theme</button>
     </div>
+    </nav>
 
-    <div
-      class="row"
-      style="
-        margin-left: 1%;
-        margin-right: 1%;
-        background-color: #f2f9fd;
-        border: 1px solid #1d86db;
-      "
-    >
-      <div
-        class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
-        style="
-          z-index: 999;
-          margin-top: 15px;
-          min-height: 500px;
-          border-top-left-radius: 10px;
-        "
-      >
-        <div
-          class="card"
-          style="
-            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2),
-              12px 12px 20px rgba(0, 0, 0, 0.6),
-              inset 2px 2px 0 rgba(255, 255, 255, 0.1);
-          "
-        >
-          <div
-            style="
-              color: #fff;
-              font-family: 'Roboto Condensed', sans-serif;
-              font-weight: 100;
-              opacity: 0.95;
-              font-size: 20px;
-              text-align: center;
-              padding: 8px 15px;
-              background: -webkit-linear-gradient(
-                top,
-                #04579bc7 0%,
-                #4d9fd6 100%
-              );
-            "
-          >
-            Gender Wise Candidates Count
+    <!-- Main Content -->
+    <div class="container">
+      <div class="grid">
+  
+          
+          <div class="card">
+          <h3>State-Wise Candidates Data</h3>
+          <p>Map chart showing candidates across regions.</p>
+          <div id="my-map-div" class="plot"></div>
           </div>
-          <div class="card-content">
-            <div id="candidate_categories">
-              <figure class="highcharts-figure">
-                <div id="container" class=""></div>
-              </figure>
-            </div>
+  
+          
+          <div class="card">
+          <h3>Center-wise Candidate Data</h3>
+          <p>Map chart showing candidate categories.</p>
+          <div id="my-map1-div" class="plot"></div>
           </div>
-        </div>
+  
+  
+          <div class="card">
+          <h3>Gender Wise Candidates Count</h3>
+          <p>Line chart showing the growth of candidates by their gender.</p>
+          <div id="lineChart" class="plot"></div>
+          </div>
+  
+          
+          <div class="card">
+          <h3>Course Wise Candidate Data</h3>
+          <p>Donut chart showing candidate distribution by course.</p>
+          <div id="donutChart" class="plot"></div>
+          </div>
+  
+          
+          <div class="card">
+              <h3>Month-Wise Registered Candidates Count</h3>
+              <p>Bar chart showing candidates across regions.</p>
+              <div id="barChart" class="plot"></div>
+          </div>
+  
+          
+          <div class="card">
+          <h3>Category-Wise Candidates Count</h3>
+          <p>Pie chart showing candidate categories.</p>
+          <div id="pieChart" class="plot"></div>
+          </div>
+  
       </div>
+      </div>
+  
+      
+      <footer>
+      &copy; 2025 India AI Dashboard — All rights reserved.
+      </footer>
+  
+      
+      <script>
+      // Bar Chart
+      Plotly.newPlot('barChart', [{
+          x: ['Delhi', 'Mumbai', 'Kolkata', 'Chennai', 'Bangalore'],
+          y: [120, 200, 150, 80, 180],
+          type: 'bar',
+          marker: { color: '#ff7a00' }
+      }], {
+          margin: { t: 20 },
+          xaxis: { title: 'City' },
+          yaxis: { title: 'Candidates' },
+          plot_bgcolor: 'transparent',
+          paper_bgcolor: 'transparent'
+      }, { responsive: true });
+  
+      // Pie Chart
+      Plotly.newPlot('pieChart', [{
+          values: [45, 25, 15, 10, 5],
+          labels: ['General', 'OBC', 'SC', 'ST', 'Others'],
+          type: 'pie',
+          marker: {
+          colors: ['#ff7a00', '#ffa64d', '#80cbc4', '#008080', '#004d4d']
+          }
+      }], {
+          margin: { t: 20 },
+          showlegend: true
+      }, { responsive: true });
+  
+      // Line Chart (Growth over Time)
+      Plotly.newPlot('lineChart', [{
+          x: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+          y: [100, 150, 180, 220, 300],
+          type: 'line',
+          marker: { color: '#008080' }
+      }], {
+          margin: { t: 20 },
+          xaxis: { title: 'Month' },
+          yaxis: { title: 'Candidates' },
+          plot_bgcolor: 'transparent',
+          paper_bgcolor: 'transparent'
+      }, { responsive: true });
+  
+      // Donut Chart (Region-wise Distribution)
+      Plotly.newPlot('donutChart', [{
+          values: [20, 25, 15, 30, 10],
+          labels: ['North', 'South', 'East', 'West', 'Central'],
+          type: 'pie',
+          hole: 0.3,
+          marker: { colors: ['#ff7a00', '#ffa64d', '#80cbc4', '#008080', '#004d4d'] }
+      }], {
+          margin: { t: 20 },
+          showlegend: true
+      }, { responsive: true });
+  
+      // Scatter Plot (Correlation Analysis)
+      Plotly.newPlot('scatterPlot', [{
+          x: [1, 2, 3, 4, 5],
+          y: [10, 12, 14, 16, 18],
+          mode: 'markers',
+          type: 'scatter',
+          marker: { color: '#ff7a00' }
+      }], {
+          margin: { t: 20 },
+          xaxis: { title: 'Factor 1' },
+          yaxis: { title: 'Factor 2' },
+          plot_bgcolor: 'transparent',
+          paper_bgcolor: 'transparent'
+      }, { responsive: true });
+  
+      // Heatmap
+      Plotly.newPlot('heatmap', [{
+          z: [
+          [1, 20, 30, 50],
+          [60, 70, 80, 90],
+          [100, 110, 120, 130]
+          ],
+          type: 'heatmap',
+          colorscale: 'YlGnBu'
+      }], {
+          margin: { t: 20 },
+          xaxis: { title: 'Region' },
+          yaxis: { title: 'Performance' },
+          plot_bgcolor: 'transparent',
+          paper_bgcolor: 'transparent'
+      }, { responsive: true });
+  
+      // Theme Toggle Functionality
+      function cycleTheme() {
+          const themes = ['light', 'dark', 'orange', 'blue'];
+          let currentTheme = document.documentElement.getAttribute('data-theme');
+          let currentIndex = themes.indexOf(currentTheme);
+          let nextTheme = themes[(currentIndex + 1) % themes.length];
+          document.documentElement.setAttribute('data-theme', nextTheme);
+      }
+      </script>
 
-      <div
-        class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
-        style="
-          z-index: 999;
-          margin-top: 15px;
-          min-height: 500px;
-          border-top-left-radius: 10px;
-        "
-      >
-        <div
-          class="card"
-          style="
-            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2),
-              12px 12px 20px rgba(0, 0, 0, 0.6),
-              inset 2px 2px 0 rgba(255, 255, 255, 0.1);
-          "
-        >
-          <div
-            style="
-              color: #fff;
-              font-family: 'Roboto Condensed', sans-serif;
-              font-weight: 100;
-              opacity: 0.95;
-              font-size: 20px;
-              text-align: center;
-              padding: 8px 15px;
-              background: -webkit-linear-gradient(
-                top,
-                #04579bc7 0%,
-                #4d9fd6 100%
-              );
-            "
-          >
-            Course Wise Candidate Data
-          </div>
-          <div class="card-content">
-            <div id="candidate_categories">
-              <figure class="highcharts-figure">
-                <div id="horicontainer" class=""></div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div
-      class="row"
-      style="
-        margin-left: 1%;
-        margin-right: 1%;
-        background-color: #c9e8fd;
-        border: 1px solid #1d86db;
-      "
-    >
-      <div
-        class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
-        style="
-          z-index: 999;
-          margin-top: 15px;
-          min-height: 500px;
-          border-top-left-radius: 10px;
-        "
-      >
-        <div
-          class="card"
-          style="
-            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2),
-              12px 12px 20px rgba(0, 0, 0, 0.6),
-              inset 2px 2px 0 rgba(255, 255, 255, 0.1);
-          "
-        >
-          <div
-            style="
-              color: #fff;
-              font-family: 'Roboto Condensed', sans-serif;
-              font-weight: 100;
-              opacity: 0.95;
-              font-size: 20px;
-              text-align: center;
-              padding: 8px 15px;
-              background: -webkit-linear-gradient(
-                top,
-                #04579bc7 0%,
-                #4d9fd6 100%
-              );
-            "
-          >
-            Month-Wise Registered Candidates Count
-          </div>
-          <div class="card-content">
-            <div id="candidate_categories">
-              <figure class="highcharts-figure">
-                <div id="barcontainer" class=""></div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
-        style="
-          z-index: 999;
-          margin-top: 15px;
-          min-height: 500px;
-          border-top-left-radius: 10px;
-        "
-      >
-        <div
-          class="card"
-          style="
-            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2),
-              12px 12px 20px rgba(0, 0, 0, 0.6),
-              inset 2px 2px 0 rgba(255, 255, 255, 0.1);
-          "
-        >
-          <div
-            style="
-              color: #fff;
-              font-family: 'Roboto Condensed', sans-serif;
-              font-weight: 100;
-              opacity: 0.95;
-              font-size: 20px;
-              text-align: center;
-              padding: 8px 15px;
-              background: -webkit-linear-gradient(
-                top,
-                #04579bc7 0%,
-                #4d9fd6 100%
-              );
-            "
-          >
-            Category-Wise Candidates Count
-          </div>
-          <div class="card-content">
-            <div id="candidate_categories">
-              <figure class="highcharts-figure">
-                <div id="newcontainer" class=""></div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <script>
       async function renderIndiaMap(containerId = "my-map-div") {
         const topology = await fetch(
