@@ -152,7 +152,7 @@ body {
     margin-right: 5px;               /* Space between icon and text (if any text is added) */
 }
 
-.logo-bar {
+/* .logo-bar {
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -271,5 +271,5 @@ body {
     .logo-bar img {
     height: 100%;
     }
-}
+} */
 
