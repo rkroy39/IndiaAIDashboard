@@ -39,10 +39,10 @@
   <body>
 
     <div class="logo-bar">
-      <a href="home.html"><img src="{% static 'img/nielitlogo-left - Copy.PNG'%}" alt="Image 1" ></a>
+      <a href="home.html"><img src="{% static 'img/nielitlogo-left - Copy.PNG'%}" alt="Image 1" style="height: 80%; width:100%;"></a>
       <img src="{% static 'img/dashboard_img.png'%}" alt="Image 2" style="height: 100;">
-      <img src="{% static 'img/digital-india-logo.jpg'%}" alt="Image 3" style="width: 10%;">
-      <img src="{% static 'img/meity-new.jpg'%}" alt="Image 3" style="width: 10%;">
+      <img src="{% static 'img/digital-india-logo.jpg'%}" alt="Image 3" style="width: 10%;height:100" >
+      <img src="{% static 'img/meity-new.jpg'%}" alt="Image 3" style="width: 10%;height: 100%;">
     </div>
 
     <div class="container">
@@ -110,8 +110,8 @@
         />
       </div>
       {% csrf_token %}
-      <!-- <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div> -->
-      <br />
+      <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div> -->
+      <!-- <br />
       <button
         type="submit"
         class="login-btn"
