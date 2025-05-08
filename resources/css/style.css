@@ -152,4 +152,123 @@ body {
     margin-right: 5px;               /* Space between icon and text (if any text is added) */
 }
 
+.logo-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
 
+.logo-bar img {
+    height: 80px;
+    object-fit: contain;
+}
+
+.container {
+    display: flex;
+    margin-top: 6%;
+    width: 90%;
+    max-width: 1000px;
+    height: 500px;
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    z-index:999;
+    opacity: 0.9;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+
+
+.form-side {
+    flex: 0.7;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-side h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.form-side form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-side input {
+    padding: 0.75rem;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.form-side button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #ff7a00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-side button:hover {
+    background-color: #e66900;
+}
+
+.form-side .link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.form-side .link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-side .link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+    flex-direction: column;
+    height: auto;
+    }
+
+    .gif-side {
+    height: 250px;
+    width: 100%;
+    }
+
+    .form-side {
+    padding: 2rem;
+    }
+
+    .logo-bar {
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+    .logo-bar img {
+    height: 100%;
+    }
+}
