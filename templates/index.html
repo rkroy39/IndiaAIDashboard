@@ -381,7 +381,7 @@ Highcharts.chart('horicontainer', {
 <script>
     async function renderIndiaMap(containerId = 'my-map-div') {
         const topology = await fetch(
-            'https://code.highcharts.com/mapdata/countries/in/in-all.topo.json'
+            'https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.topo.json'
         ).then(res => res.json());
 
         const data = [
@@ -445,7 +445,7 @@ Highcharts.chart('horicontainer', {
 <script>
     async function renderIndiaMap(containerId = 'my-map1-div') {
         const topology = await fetch(
-            'https://code.highcharts.com/mapdata/countries/in/in-all.topo.json'
+            'https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.topo.json'
         ).then(res => res.json());
 
     

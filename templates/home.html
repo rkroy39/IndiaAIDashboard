@@ -30,15 +30,15 @@
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/mapdata/countries/in/in-all.topo.json"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.topo.json"></script>
     <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
 
     <!-- Highchart Javascript -->
-    <!-- <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <link href="css/resources/css/style_logo.css" rel="stylesheet" /> -->
+    <link href="css/resources/css/style_logo.css" rel="stylesheet" />
   </head>
   <style>
     #my-map-div {
@@ -54,15 +54,368 @@
 
     }
   </style>
+  <script>
+    window.onload = function () {
+      Highcharts.chart("container", {
+        chart: {
+          type: "pie",
+        },
+        title: {
+          text: "YearWise Registered Candidates Count",
+        },
+        tooltip: {
+          valueSuffix: "%",
+        },
+        subtitle: {
+          text: 'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">NIELIT</a>',
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: "pointer",
+            dataLabels: {
+              enabled: true,
+              distance: 20,
+              format: "{point.name}: {point.percentage:.1f}%",
+              style: {
+                fontSize: "1.2em",
+                textOutline: "none",
+                opacity: 0.7,
+              },
+              filter: {
+                operator: ">",
+                property: "percentage",
+                value: 10,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "Percentage",
+            colorByPoint: true,
+            data: [
+              { name: "Male", y: 55.02 },
+              { name: "Female", sliced: true, selected: true, y: 26.71 },
+              { name: "Others", y: 1.09 },
+              // { name: 'Protein', y: 15.5 },
+              // { name: 'Ash', y: 1.68 }
+            ],
+          },
+        ],
+      });
 
+      Highcharts.chart("newcontainer", {
+        chart: {
+          type: "pie",
+        },
+        title: {
+          text: "YearWise Certified Candidates Count",
+        },
+        tooltip: {
+          valueSuffix: "%",
+        },
+        subtitle: {
+          text: 'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">NIELIT</a>',
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: "pointer",
+            dataLabels: {
+              enabled: true,
+              distance: 20,
+              format: "{point.name}: {point.percentage:.1f}%",
+              style: {
+                fontSize: "1.2em",
+                textOutline: "none",
+                opacity: 0.7,
+              },
+              filter: {
+                operator: ">",
+                property: "percentage",
+                value: 10,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "Percentage",
+            colorByPoint: true,
+            data: [
+              { name: "EWS", y: 55.02 },
+              { name: "SC", sliced: true, selected: true, y: 26.71 },
+              { name: "ST", y: 1.09 },
+              { name: "Women", y: 15.5 },
+              // { name: 'Ash', y: 1.68 }
+            ],
+          },
+        ],
+      });
+
+      Highcharts.chart("barcontainer", {
+        chart: {
+          type: "column",
+        },
+        title: {
+          text: "YearWise Appeared Candidates Count",
+        },
+        subtitle: {
+          text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">NIELIT</a>',
+        },
+        xAxis: {
+          type: "category",
+          labels: {
+            autoRotation: [-45, -90],
+            style: {
+              fontSize: "13px",
+              fontFamily: "Verdana, sans-serif",
+            },
+          },
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: "Population (millions)",
+          },
+        },
+        legend: {
+          enabled: false,
+        },
+        tooltip: {
+          pointFormat: "Population in 2021: <b>{point.y:.1f} millions</b>",
+        },
+        series: [
+          {
+            name: "Population",
+            colors: [
+              "#9b20d9",
+              "#9215ac",
+              "#861ec9",
+              "#7a17e6",
+              "#7010f9",
+              "#691af3",
+              "#6225ed",
+              "#5b30e7",
+              "#533be1",
+              "#4c46db",
+              "#4551d5",
+              "#3e5ccf",
+              "#3667c9",
+              "#2f72c3",
+              "#277dbd",
+              "#1f88b7",
+              "#1693b1",
+              "#0a9eaa",
+              "#03c69b",
+              "#00f194",
+            ],
+            colorByPoint: true,
+            groupPadding: 0,
+            data: [
+              ["December", 37.33],
+              ["November", 31.18],
+              ["October", 27.79],
+              ["September", 22.23],
+              ["August", 21.91],
+              ["July", 21.74],
+              ["June", 15.25],
+              ["May", 14.974],
+              ["April", 14.97],
+              ["March", 14.86],
+              ["February", 14.16],
+              ["January", 13.79],
+            ],
+            dataLabels: {
+              enabled: true,
+              rotation: -90,
+              color: "#FFFFFF",
+              inside: true,
+              verticalAlign: "top",
+              format: "{point.y:.1f}", // one decimal
+              y: 10, // 10 pixels down from the top
+              style: {
+                fontSize: "13px",
+                fontFamily: "Verdana, sans-serif",
+              },
+            },
+          },
+        ],
+      });
+
+      Highcharts.chart("horicontainer", {
+        chart: {
+          type: "bar",
+        },
+        title: {
+          text: "Candidates Data",
+        },
+        subtitle: {
+          text:
+            "Source: <a " +
+            'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
+            'target="_blank">NIELIT</a>',
+        },
+        xAxis: {
+          categories: ["Africa", "America", "Asia", "Europe"],
+          title: {
+            text: null,
+          },
+          gridLineWidth: 1,
+          lineWidth: 0,
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: "Population (millions)",
+            align: "high",
+          },
+          labels: {
+            overflow: "justify",
+          },
+          gridLineWidth: 0,
+        },
+        tooltip: {
+          valueSuffix: " millions",
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: "50%",
+            dataLabels: {
+              enabled: true,
+            },
+            groupPadding: 0.1,
+          },
+        },
+        legend: {
+          layout: "vertical",
+          align: "right",
+          verticalAlign: "top",
+          x: -40,
+          y: 80,
+          floating: true,
+          borderWidth: 1,
+          backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || "#FFFFFF",
+          shadow: true,
+        },
+        credits: {
+          enabled: false,
+        },
+        series: [
+          {
+            name: "Year 1990",
+            data: [632, 727, 3202, 721],
+          },
+          {
+            name: "Year 2000",
+            data: [814, 841, 3714, 726],
+          },
+          {
+            name: "Year 2021",
+            data: [1393, 1031, 4695, 745],
+          },
+        ],
+      });
+    };
+  </script>
 
   <body>
+    <section id="navigation" class="shadow">
+      <div class="image-container" style="background-color: #fff">
+        <a class="scroll" href="index.html">
+          <img
+            src="{% static 'img/nielitlogo-left - Copy.PNG'%}"
+            alt="Image 1"
+            style="height: 88%; width: 100%"
+        /></a>
+        <img
+          src="{% static 'img/dashboard_img.png'%}"
+          alt="Image 2"
+          height="100"
+        />
+        <img
+          src="{% static 'img/digital-india-logo.jpg'%}"
+          alt="Image 2"
+          height="100"
+        />
+        <img
+          src="{% static 'img/meity-new.jpg'%}"
+          alt="Image 3"
+          style="height: 100%"
+        />
+      </div>
+    </section>
+    <a
+      name="login"
+      href="/login"
+      class="btn login-btn"
+      title="Login"
+      style="
+        background-color: #07599cd7;
+        height: auto;
+        color: #fff;
+        margin-top: 1%;
+        margin-left: 90%;
+        margin-bottom: 1%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      "
+    >
+      <i class="fa fa-sign-in-alt"></i> Login
+    </a>
 
-    <div class="logo-section">
-      <a href="home.html"><img src="{% static 'img/nielitlogo-left - Copy.PNG'%}" alt="Image 1" style="height: 88%; width:100%;"></a>
-      <img src="{% static 'img/dashboard_img.png'%}" alt="Image 2" style="height: 5%; width:5%;">
-      <img src="{% static 'img/digital-india-logo.jpg'%}" alt="Image 3" style="height: 8%; width:9%;">
-  </div>
+    <div
+      class="row"
+      style="
+        margin-left: 1%;
+        margin-right: 1%;
+        background-color: #c9e8fd;
+        border: 1px solid #1d86db;
+      "
+    >
+      <div
+        class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        style="z-index: 999; margin-top: 15px; min-height: 600px"
+      >
+        <div
+          class="card"
+          style="
+            box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2),
+              12px 12px 20px rgba(0, 0, 0, 0.6),
+              inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+          "
+        >
+          <div
+            style="
+              color: #fff;
+              font-family: 'Roboto Condensed', sans-serif;
+              font-weight: 100;
+              opacity: 0.95;
+              font-size: 20px;
+              text-align: center;
+              padding: 8px 15px;
+              background: -webkit-linear-gradient(
+                top,
+                #04579bc7 0%,
+                #4d9fd6 100%
+              );
+            "
+          >
+            State-Wise Candidates Data
+          </div>
+          <div class="card-content">
+            <div id="candidate_categories">
+              <figure class="highcharts-figure">
+                <div id="my-map-div" class=""></div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
 
   <nav>
     <h1>AI Dashboard</h1>
@@ -234,36 +587,30 @@
     <script>
       async function renderIndiaMap(containerId = "my-map-div") {
         const topology = await fetch(
-          "https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.topo.json"
+          "https://code.highcharts.com/mapdata/countries/in/in-all.topo.json"
         ).then((res) => res.json());
 
-        const data = [
-          { "hc-key": "in-up", value: 828, color: "#ff0000" }, // Red for Uttar Pradesh
-          { "hc-key": "in-mh", value: 365, color: "#00ff00" }, // Green for Maharashtra
-          { "hc-key": "in-br", value: 1106, color: "#0000ff" }, // Blue for Bihar
-          { "hc-key": "in-wb", value: 1029, color: "#ffff00" }, // Yellow for West Bengal
-          { "hc-key": "in-mp", value: 236, color: "#ff00ff" }, // Magenta for MP
-          { "hc-key": "in-tn", value: 555, color: "#00ffff" }, // Cyan for TN
-          { "hc-key": "in-ka", value: 319, color: "#ffa500" }, // Orange for Karnataka
-          { "hc-key": "in-gj", value: 308, color: "#F44336" }, // BlueViolet for Gujarat
-          { "hc-key": "in-rj", value: 201, color: "#a52a2a" }, // Brown for Rajasthan
-          { "hc-key": "in-kl", value: 860, color: "#708090" }, // SlateGray for Kerala
-          { "hc-key": "in-ap", value: 104, color: "#324148" }, // for andhra pradesh
-          { "hc-key": "in-ar", value: 741, color: "#F44336" }, // arunachal pradesh
-          { "hc-key": "in-as", value: 582, color: "#673AB7" }, // assam
-          { "hc-key": "in-hr", value: 874, color: "#3F51B5" }, // haryana
-          { "hc-key": "in-ut", value: 543, color: "#202020" }, // uttarakhand
-          { "hc-key": "in-pb", value: 457, color: "#00f194" }, //punjab
-          { "hc-key": "in-or", value: 521, color: "#03c69b" }, // orissa
-          { "hc-key": "in-jk", value: 521, color: "#03c69b" }, // j and k
-        ];
+            const data = [
+        ['madhya pradesh', 10], ['uttar pradesh', 11], ['karnataka', 12],
+        ['nagaland', 13], ['bihar', 14], ['lakshadweep', 15],
+        ['andaman and nicobar', 16], ['assam', 17], ['west bengal', 18],
+        ['puducherry', 19], ['daman and diu', 20], ['gujarat', 21],
+        ['rajasthan', 22], ['dadara and nagar havelli', 23],
+        ['chhattisgarh', 24], ['tamil nadu', 25], ['chandigarh', 26],
+        ['punjab', 27], ['haryana', 28], ['andhra pradesh', 29],
+        ['maharashtra', 30], ['himachal pradesh', 31], ['meghalaya', 32],
+        ['kerala', 33], ['telangana', 34], ['mizoram', 35], ['tripura', 36],
+        ['manipur', 37], ['arunanchal pradesh', 38], ['jharkhand', 39],
+        ['goa', 40], ['nct of delhi', 41], ['odisha', 42],
+        ['jammu and kashmir', 43], ['sikkim', 44], ['uttarakhand', 45]
+    ];
 
         Highcharts.mapChart(containerId, {
           chart: { map: topology },
-          title: { text: "Population Density by Indian State" },
+          title: { text: "" },
           legend: {
             title: {
-              text: "Population density per km²",
+              text: "State-wise Candidates Data",
               style: { color: "black" },
             },
           },
@@ -278,7 +625,7 @@
             padding: 0,
             pointFormat:
               "<b>{point.name}</b><br>" +
-              '<span style="font-size:16px">{point.value}/km²</span>',
+              '<span style="font-size:16px">{point.value}</span>',
             position: { verticalAlign: "middle", y: 50 },
           },
 
@@ -286,7 +633,7 @@
             {
               data: data,
               joinBy: "hc-key",
-              name: "Population density",
+              name: "Candidates Count",
               states: { hover: { color: "#a4edba" } },
               dataLabels: { enabled: true, format: "{point.name}" },
             },
@@ -300,36 +647,29 @@
     <script>
       async function renderIndiaMap(containerId = "my-map1-div") {
         const topology = await fetch(
-          "https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.topo.json"
+          "https://code.highcharts.com/mapdata/countries/in/in-all.topo.json"
         ).then((res) => res.json());
 
-        const data = [
-          { "hc-key": "in-up", value: 828, color: "#ff0000" }, // Red for Uttar Pradesh
-          { "hc-key": "in-mh", value: 365, color: "#00ff00" }, // Green for Maharashtra
-          { "hc-key": "in-br", value: 1106, color: "#0000ff" }, // Blue for Bihar
-          { "hc-key": "in-wb", value: 1029, color: "#ffff00" }, // Yellow for West Bengal
-          { "hc-key": "in-mp", value: 236, color: "#ff00ff" }, // Magenta for MP
-          { "hc-key": "in-tn", value: 555, color: "#00ffff" }, // Cyan for TN
-          { "hc-key": "in-ka", value: 319, color: "#ffa500" }, // Orange for Karnataka
-          { "hc-key": "in-gj", value: 308, color: "#F44336" }, // BlueViolet for Gujarat
-          { "hc-key": "in-rj", value: 201, color: "#a52a2a" }, // Brown for Rajasthan
-          { "hc-key": "in-kl", value: 860, color: "#708090" }, // SlateGray for Kerala
-          { "hc-key": "in-ap", value: 104, color: "#324148" }, // for andhra pradesh
-          { "hc-key": "in-ar", value: 741, color: "#F44336" }, // arunachal pradesh
-          { "hc-key": "in-as", value: 582, color: "#673AB7" }, // assam
-          { "hc-key": "in-hr", value: 874, color: "#3F51B5" }, // haryana
-          { "hc-key": "in-ut", value: 543, color: "#202020" }, // uttarakhand
-          { "hc-key": "in-pb", value: 457, color: "#00f194" }, //punjab
-          { "hc-key": "in-or", value: 521, color: "#03c69b" }, // orissa
-          { "hc-key": "in-jk", value: 521, color: "#03c69b" }, // j and k
-        ];
-
+            const data = [
+        ['madhya pradesh', 10], ['uttar pradesh', 11], ['karnataka', 12],
+        ['nagaland', 13], ['bihar', 14], ['lakshadweep', 15],
+        ['andaman and nicobar', 16], ['assam', 17], ['west bengal', 18],
+        ['puducherry', 19], ['daman and diu', 20], ['gujarat', 21],
+        ['rajasthan', 22], ['dadara and nagar havelli', 23],
+        ['chhattisgarh', 24], ['tamil nadu', 25], ['chandigarh', 26],
+        ['punjab', 27], ['haryana', 28], ['andhra pradesh', 29],
+        ['maharashtra', 30], ['himachal pradesh', 31], ['meghalaya', 32],
+        ['kerala', 33], ['telangana', 34], ['mizoram', 35], ['tripura', 36],
+        ['manipur', 37], ['arunanchal pradesh', 38], ['jharkhand', 39],
+        ['goa', 40], ['nct of delhi', 41], ['odisha', 42],
+        ['jammu and kashmir', 43], ['sikkim', 44], ['uttarakhand', 45]
+    ];
         Highcharts.mapChart(containerId, {
           chart: { map: topology },
-          title: { text: "Population Density by Indian State" },
+          title: { text: "" },
           legend: {
             title: {
-              text: "Population density per km²",
+              text: "Center-wise Candidate Data",
               style: { color: "black" },
             },
           },
@@ -344,14 +684,14 @@
             padding: 0,
             pointFormat:
               "<b>{point.name}</b><br>" +
-              '<span style="font-size:16px">{point.value}/km²</span>',
+              '<span style="font-size:16px">{point.value}</span>',
             position: { verticalAlign: "middle", y: 50 },
           },
           series: [
             {
               data: data,
               joinBy: "hc-key",
-              name: "Population density",
+              name: "Candidates Count",
               states: { hover: { color: "#a4edba" } },
               dataLabels: { enabled: true, format: "{point.name}" },
             },
