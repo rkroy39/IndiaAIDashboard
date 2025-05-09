@@ -5,119 +5,199 @@
     <meta charset="utf-8" />
     <title>India AI Dashboard | Login</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="keywords" />
-    <meta content="" name="description" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link href="{% static 'css/style_logo.css'%}" rel="stylesheet" />
+    
+    <!-- <link href="{% static 'css/style_logo.css'%}" rel="stylesheet" /> -->
+    <!-- <link rel="stylesheet" href="{%static 'templates/style.css' %}"> -->
+    <!-- <link rel="stylesheet" href="resources/css/theme.css"> -->
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </head>
+  
   <style>
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 
-    .login-container {
-      background: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-      width: 100%;
-      max-width: 400px;
+    body, html {
+        width: 100%;
+        height: 100%;
+        font-family: "Segoe UI", sans-serif;
+        background:  linear-gradient(rgba(243, 211, 181, 0.945), rgba(255, 123, 0, 0.795));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 
-    .login-container h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #213a7e;
+    .gif-side {
+    flex: 1.3;
+    background: url("{% static 'assets/bulb.gif' %}") no-repeat center center;
+    background-size: cover;
     }
 
-    .login-btn {
-      width: 100%;
-      background-color: #273e7c;
-      color: white;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
+    .logo-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.logo-bar img {
+    height: 80px;
+    object-fit: contain;
+}
+
+.container {
+    display: flex;
+    margin-top: 6%;
+    width: 90%;
+    max-width: 1000px;
+    height: 500px;
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    z-index:999;
+    opacity: 0.9;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+
+
+.form-side {
+    flex: 0.7;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-side h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.form-side form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-side input {
+    padding: 0.75rem;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.form-side button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #ff7a00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-side button:hover {
+    background-color: #e66900;
+}
+
+.form-side .link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.form-side .link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-side .link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+    flex-direction: column;
+    height: auto;
     }
 
-    .form-group {
-      margin-bottom: 1rem;
+    .gif-side {
+    height: 250px;
+    width: 100%;
     }
 
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #444;
-    }
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      outline: none;
-      transition: 0.3s;
+    .form-side {
+    padding: 2rem;
     }
 
-    .login-btn:hover {
-      background-color: #1a2e5b;
+    .logo-bar {
+    flex-direction: column;
+    gap: 1rem;
     }
 
-    .text-center {
-      text-align: center;
-      margin-top: 1rem;
-      font-size: 0.9rem;
+    .logo-bar img {
+    height: 100%;
     }
+}
+    </style>
+</head>
 
-    .text-center a {
-      color: #273e7c;
-      text-decoration: none;
-    }
+  <body>
 
-    .text-center a:hover {
-      text-decoration: underline;
-    }
-  </style>
-  <!-- <body style="background: #0a528dd0;"> {% static 'css/style_logo.css'%}-->
-  <body style="background-image: url('/resources/img/image.png')">
-    <section id="navigation" class="shadow">
-      <div class="image-container" style="background-color: #fff">
-        <a class="scroll" href="landing.html">
-          <img
-            src="{% static 'img/nielitlogo-left - Copy.PNG'%}"
-            alt="Image 1"
-            style="height: 88%; width: 100%"
-        /></a>
-        <img
-          src="{% static 'img/dashboard_img.png'%}"
-          alt="Image 2"
-          height="100"
-        />
-        <img
-          src="{% static 'img/digital-india-logo.jpg'%}"
-          alt="Image 2"
-          height="100"
-        />
-        <img
-          src="{% static 'img/meity-new.jpg'%}"
-          alt="Image 3"
-          style="height: 100%"
-        />
+    <div class="logo-bar">
+      <a href="home.html"><img src="{% static 'img/nielitlogo-left - Copy.PNG'%}" alt="Image 1" ></a>
+      <img src="{% static 'img/dashboard_img.png'%}" alt="Image 2" >
+      <img src="{% static 'img/digital-india-logo.jpg'%}" alt="Image 3" style="width: 10%;">
+
+      <!-- <a href="home.html"><img src="{% static 'img/nielitlogo-left - Copy.PNG'%}" alt="Image 1" style="height: 80%; width:100%;"></a>
+      <img src="{% static 'img/dashboard_img.png'%}" alt="Image 2" style="height: 100;">
+      <img src="{% static 'img/digital-india-logo.jpg'%}" alt="Image 3" style="width: 10%;height:100" >
+      <img src="{% static 'img/meity-new.jpg'%}" alt="Image 3" style="width: 10%;height: 100%;"> -->
+    </div>
+
+    <div class="container">
+      <div class="gif-side"></div>
+      <div class="form-side">
+          <h2>Login to Your Account</h2>
+          <form action="{% url 'submit_login_form' %}" method="post">
+          <input type="text" placeholder="Username" id="username" name="username" required />
+          <input type="password" id="password" name="password" placeholder="Password" required />
+          {% csrf_token %}
+          <!-- <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div><br> -->
+          <button type="submit">Login</button>
+          </form>
+          <div class="link">
+          <a href="#">Forgot Password?</a>
+          </div>
+          <script>
+              function validateCaptcha() {
+                  const response = grecaptcha.getResponse();
+                  if (response.length === 0) {
+                      alert("Please verify you're not a robot.");
+                      return false;
+                  }
+                  return true;
+              }
+          </script>
       </div>
-    </section>
+      </div>
+
 
     <form
       action="/login/"
@@ -156,8 +236,8 @@
         />
       </div>
       {% csrf_token %}
-      <!-- <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div> -->
-      <br />
+      <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div> -->
+      <!-- <br />
       <button
         type="submit"
         class="login-btn"
@@ -175,9 +255,9 @@
         Login Now
       </button>
 
-      <div class="text-center">
-        <p><a href="#">Forgot password?</a></p>
-      </div>
+      <div class="link">
+        <a href="#">Forgot Password?</a>
+        </div>
     </form>
     <script>
       function validateCaptcha() {
@@ -188,6 +268,6 @@
         }
         return true;
       }
-    </script>
+    </script> -->
   </body>
 </html>
